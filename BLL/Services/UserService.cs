@@ -29,5 +29,30 @@ namespace BLL.Services
             _db.Users.Add(user);
             _db.Save();
         }
+
+        public void SetAdmin(int id)
+        {
+            var user = _db.Users.GetById(id);
+
+            user.Role = "Admin";
+
+            _db.Save();
+        }
+
+        public UpdatedUserDto Update(UpdatedUserDto updatedUser)
+        {
+            var user = _db.Users.GetById(updatedUser.Id);
+
+            user.Name = updatedUser.Name;
+            user.Surname = updatedUser.Surname;
+            user.Email = updatedUser.Email;
+            user.Address = updatedUser.Address;
+
+            //_db.Users.Update(user);
+
+            _db.Save();
+
+            return updatedUser;
+        }
     }
 }

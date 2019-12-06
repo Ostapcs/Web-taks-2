@@ -27,5 +27,12 @@ namespace Web_Task2_Shop.Controllers
             _userService.Register(userDto);
             return Ok();
         }
+
+        [HttpPut]
+        [Route("update")]
+        public IActionResult Update(UpdatedUserDto updatedUser)
+        {
+            return Ok(_userService.Update(updatedUser));
+        }
     }
 }
