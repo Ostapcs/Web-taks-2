@@ -1,18 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BLL.AuthOptions;
 using BLL.Module;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace Web_Task2_Shop
 {
@@ -29,7 +23,9 @@ namespace Web_Task2_Shop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
+            
+            services.AddCors();
+            
             BLLModule.ConfigureBLLServices(services);
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -53,6 +49,12 @@ namespace Web_Task2_Shop
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(c => c
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowAnyOrigin()
+                );
 
             app.UseEndpoints(endpoints =>
             {

@@ -14,6 +14,7 @@ namespace BLL.Module
             DAL.Module.DALModule.ConfigureDALServices(services);
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IProductService, ProductService>();
         }
     }
 }

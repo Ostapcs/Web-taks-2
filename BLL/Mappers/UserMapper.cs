@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BLL.DtoEntities;
+using BLL.DtoEntities.UserDto;
 using DAL.Entities;
 
 namespace BLL.Mappers
@@ -17,6 +18,19 @@ namespace BLL.Mappers
                 Address = userDto.Address,
                 Email = userDto.Email,
                 Password = userDto.Password
+            };
+        }
+
+        public static PreviewUserDto ToPreviewUser(this User user)
+        {
+            return new PreviewUserDto
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Surname = user.Surname,
+                Address = user.Address,
+                Email = user.Email,
+                Role = user.Role
             };
         }
     }

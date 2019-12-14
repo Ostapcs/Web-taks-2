@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BLL.DtoEntities;
+using BLL.DtoEntities.UserDto;
 using BLL.Interfaces;
 using BLL.Mappers;
 using DAL.Interfaces;
@@ -16,7 +17,7 @@ namespace BLL.Services
         {
             _db = db;
         }
-
+        
         public void Register(CreateUserDto userDto)
         {
             var pass = PasswordHashService.Hash(userDto.Password);
@@ -48,11 +49,18 @@ namespace BLL.Services
             user.Email = updatedUser.Email;
             user.Address = updatedUser.Address;
 
-            //_db.Users.Update(user);
+            _db.Users.Update(user);
 
             _db.Save();
 
             return updatedUser;
+        }
+
+        public PreviewUserDto GetUserInfo(int userId)
+        {
+            var user = _db.Users.GetById(userId);
+
+            return user.ToPreviewUser();
         }
     }
 }

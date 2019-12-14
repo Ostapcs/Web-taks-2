@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BLL.DtoEntities;
+﻿using BLL.DtoEntities;
+using BLL.DtoEntities.UserDto;
 using BLL.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web_Task2_Shop.Controllers
@@ -33,6 +29,13 @@ namespace Web_Task2_Shop.Controllers
         public IActionResult Update(UpdatedUserDto updatedUser)
         {
             return Ok(_userService.Update(updatedUser));
+        }
+
+        [HttpGet]
+        [Route("info/{id}")]
+        public IActionResult GetUserInfo(int id)
+        {
+            return Ok(_userService.GetUserInfo(id));
         }
     }
 }

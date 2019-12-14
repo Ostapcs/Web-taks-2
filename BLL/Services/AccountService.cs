@@ -64,17 +64,18 @@ namespace BLL.Services
                 throw new SecurityException("Invalid email or password");
             }
 
-            var identity = GetIdentity(user.Name, user.Email, user.Role);
+            var identity = GetIdentity(user.Id, user.Name, user.Email, user.Role);
 
             return identity == null ?
                 "Invalid username or password." :
                 GenerateToken(identity);
         }
 
-        private ClaimsIdentity GetIdentity(string name, string email, string role)
+        private ClaimsIdentity GetIdentity(int userId,string name, string email, string role)
         {
             var claims = new List<Claim>
             {
+                new Claim("Id", userId.ToString()),
                 new Claim(ClaimsIdentity.DefaultNameClaimType, name),
                 new Claim(JwtRegisteredClaimNames.Email, email),
                 new Claim(ClaimsIdentity.DefaultRoleClaimType, role),

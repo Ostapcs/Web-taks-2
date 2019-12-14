@@ -12,6 +12,8 @@ namespace DAL.Entities
         public string Description { get; set; }
         public double Price { get; set; }
         public double  Rating { get; set; }
+
+        public string File { get; set; }
         public IEnumerable<Comment> Comments { get; set; }
         public IEnumerable<ProductOrders> ProductOrders { get; set; }
 

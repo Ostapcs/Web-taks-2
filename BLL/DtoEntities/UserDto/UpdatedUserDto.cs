@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BLL.DtoEntities
+namespace BLL.DtoEntities.UserDto
 {
     public class UpdatedUserDto
     {

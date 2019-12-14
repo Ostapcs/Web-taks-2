@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BLL.DtoEntities;
+using BLL.DtoEntities.UserDto;
 
 namespace BLL.Interfaces
 {
@@ -12,5 +13,7 @@ namespace BLL.Interfaces
         void SetAdmin(int id);
 
         UpdatedUserDto Update(UpdatedUserDto updatedUser);
+
+        PreviewUserDto GetUserInfo(int id);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using DAL.Context;
 using DAL.Interfaces;
 using DAL.Module;
 using DAL.UnitOfWork;
@@ -10,6 +11,10 @@ namespace TestTool
     {
         static void Main(string[] args)
         {
+            using (var uof = new UnitOfWork(new ShopContext()))
+            {
+                
+            }
         }
     }
 }
