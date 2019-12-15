@@ -17,11 +17,13 @@ namespace DAL.Entities
 
         public IEnumerable<Comment> Comments { get; set; }
         public IEnumerable<Order> Orders { get; set; }
+        public IEnumerable<CartProducts> CartProducts { get; set; }
 
         public User()
         {
             Comments = new HashSet<Comment>();
             Orders = new HashSet<Order>();
+            CartProducts = new HashSet<CartProducts>();
         }
     }
 }

@@ -11,6 +11,7 @@ namespace DAL.Interfaces
         IProductOrdersRepository ProductOrders { get; }
         IProductRepository Products { get; }
         IUserRepository Users { get; }
+        ICartProductsRepository CartProducts { get; }
 
         void Save();
     }

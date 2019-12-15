@@ -1,0 +1,12 @@
+.text-view{
+    font-size: 2.5em;
+    word-break: break-all;
+}
+
+.price{
+    /*position: absolute;*/
+    /*bottom: 1px;*/
+    /*right: 80px;*/
+    font-size: 4em;
+    margin: auto;
+}

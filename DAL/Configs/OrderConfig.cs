@@ -13,9 +13,6 @@ namespace DAL.Configs
         {
             builder.HasKey(b => b.Id);
 
-            builder.Property(p => p.Amount)
-                .IsRequired();
-            
             builder.Property(p => p.Price)
                 .IsRequired();
 

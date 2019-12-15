@@ -5,6 +5,7 @@ using BLL.DtoEntities;
 using BLL.DtoEntities.UserDto;
 using BLL.Interfaces;
 using BLL.Mappers;
+using DAL.Entities;
 using DAL.Interfaces;
 
 namespace BLL.Services
@@ -28,6 +29,7 @@ namespace BLL.Services
             user.Password = pass;
 
             _db.Users.Add(user);
+            
             _db.Save();
         }
 
@@ -56,11 +58,11 @@ namespace BLL.Services
             return updatedUser;
         }
 
-        public PreviewUserDto GetUserInfo(int userId)
+        public UserInfoDto GetUserInfo(int userId)
         {
             var user = _db.Users.GetById(userId);
 
-            return user.ToPreviewUser();
+            return user.ToUserInfo();
         }
     }
 }

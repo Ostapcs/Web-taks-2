@@ -24,6 +24,7 @@ namespace DAL.Configs
 
             builder.Property(p => p.Role)
                 .IsRequired();
+            
         }
     }
 }

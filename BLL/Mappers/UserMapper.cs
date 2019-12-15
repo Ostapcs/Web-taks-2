@@ -21,9 +21,9 @@ namespace BLL.Mappers
             };
         }
 
-        public static PreviewUserDto ToPreviewUser(this User user)
+        public static UserInfoDto ToUserInfo(this User user)
         {
-            return new PreviewUserDto
+            return new UserInfoDto
             {
                 Id = user.Id,
                 Name = user.Name,
@@ -31,6 +31,16 @@ namespace BLL.Mappers
                 Address = user.Address,
                 Email = user.Email,
                 Role = user.Role
+            };
+        }
+        
+        public static PreviewUserDto ToPreviewUser(this User user)
+        {
+            return new PreviewUserDto
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Surname = user.Surname
             };
         }
     }

@@ -7,5 +7,6 @@ namespace DAL.Interfaces
 {
     public interface ICommentRepository : IRepository<Comment>
     {
+        Comment GetWithUser(int id);
     }
 }

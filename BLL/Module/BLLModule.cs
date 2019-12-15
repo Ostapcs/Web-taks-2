@@ -15,6 +15,8 @@ namespace BLL.Module
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ICommentService, CommentService>();
+            services.AddTransient<ICartService, CartService>();
         }
     }
 }

@@ -16,6 +16,8 @@ namespace DAL.UnitOfWork
         public IProductOrdersRepository ProductOrders { get; }
         public IProductRepository Products { get; }
         public IUserRepository Users { get; }
+        public ICartProductsRepository CartProducts { get; }
+
         public void Save()
         {
             _shopContext.SaveChanges();
@@ -29,6 +31,7 @@ namespace DAL.UnitOfWork
             ProductOrders = new ProductOrdersRepository(shopContext);
             Products = new ProductRepository(shopContext);
             Users = new UserRepository(shopContext);
+            CartProducts = new CartProductsRepository(shopContext);
         }
 
         public void Dispose()

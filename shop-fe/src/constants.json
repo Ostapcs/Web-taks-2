@@ -1,0 +1,7 @@
+{
+  "loginUrl": "/token",
+  "getProductUrl" : "/product/all",
+  "getProductById": "/product/info/",
+  "register" : "/user/register",
+  "updateUser" : "/user/update"
+}

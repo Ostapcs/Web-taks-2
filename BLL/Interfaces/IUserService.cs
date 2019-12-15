@@ -14,6 +14,6 @@ namespace BLL.Interfaces
 
         UpdatedUserDto Update(UpdatedUserDto updatedUser);
 
-        PreviewUserDto GetUserInfo(int id);
+        UserInfoDto GetUserInfo(int id);
     }
 }
