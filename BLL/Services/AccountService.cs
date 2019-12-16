@@ -21,39 +21,39 @@ namespace BLL.Services
             _database = database;
         }
 
-        private string GenerateToken(ClaimsIdentity identity)
+//        private string GenerateToken(ClaimsIdentity identity)
+//        {
+//            var now = DateTime.UtcNow;
+//
+//            var jwt = new JwtSecurityToken(
+//                issuer: AuthOptions.AuthOptions.ISSUER,
+//                audience: AuthOptions.AuthOptions.AUDIENCE,
+//                notBefore: now,
+//                claims: identity.Claims,
+//                expires: now.Add(TimeSpan.FromMinutes(AuthOptions.AuthOptions.LIFETIME)),
+//                signingCredentials: new SigningCredentials(AuthOptions.AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+//
+//            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
+//
+//            return encodedJwt;
+//        }
+
+        public ClaimsIdentity Authenticate(string username, string password)
         {
-            var now = DateTime.UtcNow;
-
-            var jwt = new JwtSecurityToken(
-                issuer: AuthOptions.AuthOptions.ISSUER,
-                audience: AuthOptions.AuthOptions.AUDIENCE,
-                notBefore: now,
-                claims: identity.Claims,
-                expires: now.Add(TimeSpan.FromMinutes(AuthOptions.AuthOptions.LIFETIME)),
-                signingCredentials: new SigningCredentials(AuthOptions.AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
-
-            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
-
-            return encodedJwt;
+            var claims = GetAccessToken(username, password);
+            return claims;
+//            var response = new
+//            {
+//                access_token = accessToken
+//            };
+//
+//            return JsonConvert.SerializeObject(response, new JsonSerializerSettings()
+//            {
+//                Formatting = Formatting.Indented
+//            });
         }
 
-        public string Authenticate(string username, string password)
-        {
-            var accessToken = GetAccessToken(username, password);
-
-            var response = new
-            {
-                access_token = accessToken
-            };
-
-            return JsonConvert.SerializeObject(response, new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            });
-        }
-
-        private string GetAccessToken(string username, string password)
+        private ClaimsIdentity GetAccessToken(string username, string password)
         {
             var user = _database.Users.GetUserByEmail(username);
 
@@ -66,9 +66,7 @@ namespace BLL.Services
 
             var identity = GetIdentity(user.Id, user.Name, user.Email, user.Role);
 
-            return identity == null ?
-                "Invalid username or password." :
-                GenerateToken(identity);
+            return identity;
         }
 
         private ClaimsIdentity GetIdentity(int userId,string name, string email, string role)

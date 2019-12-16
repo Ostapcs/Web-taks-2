@@ -12,6 +12,7 @@ import UpdateUserForm from "./Components/CustomForms/UpdateUserForm";
 import CartPage from "./Components/Cart";
 import CreateProductForm from "./Components/CustomForms/CreateProductForm";
 import UpdateProductForm from "./Components/CustomForms/UpdateProductForm";
+import OrderPage from "./Components/OrderPage";
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -22,6 +23,7 @@ ReactDOM.render(
             <Route exact path="/register" component={RegisterForm}/>
             <Route exact path="/user/update" component={UpdateUserForm}/>
             <Route exact path="/Home" component={HomePage}/>
+            <Route exact path="/orders" component={OrderPage}/>
             <Route exact path="/cart" component={CartPage}/>
             <Route exact path="/product/create" component={CreateProductForm}/>
             <Route path="/product/update/:id(\d+)" component={UpdateProductForm}/>

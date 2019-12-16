@@ -13,12 +13,12 @@ namespace DAL.Configs
             builder.HasOne(c => c.User)
                 .WithMany(p => p.CartProducts)
                 .HasForeignKey(pc => pc.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(p => p.Product)
                 .WithMany(p => p.CartProducts)
                 .HasForeignKey(pc => pc.ProductId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(pc => pc.Amount)
                 .IsRequired()

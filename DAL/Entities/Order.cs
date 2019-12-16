@@ -14,7 +14,7 @@ namespace DAL.Entities
         
         public User User { get; set; }
 
-        public IEnumerable<ProductOrders> ProductOrders { get; set; }
+        public ICollection<ProductOrders> ProductOrders { get; set; }
 
         public Order()
         {

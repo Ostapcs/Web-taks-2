@@ -14,6 +14,7 @@ namespace DAL.Context
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<ProductOrders> ProductOrders { get; set; }
+        public DbSet<CartProducts> CartProducts { get; set; }
 
         public ShopContext()
         {
@@ -27,11 +28,14 @@ namespace DAL.Context
             modalBuilder.ApplyConfiguration(new OrderConfig());
             modalBuilder.ApplyConfiguration(new ProductConfig());
             modalBuilder.ApplyConfiguration(new ProductOrdersConfig());
+            modalBuilder.ApplyConfiguration(new CartProductsConfig());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=shop-db;Trusted_Connection=True;");
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=shop-db;Trusted_Connection=True;");
+            optionsBuilder
+                .UseNpgsql("Host=localhost;Port=5432;Database=shop-db;Username=postgres;Password=password");
         }
     }
 }

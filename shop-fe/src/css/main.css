@@ -10,3 +10,10 @@
     font-size: 4em;
     margin: auto;
 }
+
+.close {
+    color: #000000;
+    /*float: right;*/
+    font-size: 48px;
+    font-weight: bold;
+}

@@ -9,5 +9,8 @@
   "getCart" : "/cart/",
   "updateAmount" : "/cart/update",
   "createProduct" : "/product/create",
-  "updateProduct" : "/product/update"
+  "updateProduct" : "/product/update",
+  "deleteProduct" : "/product/remove/",
+  "addOrder": "/order/create",
+  "getOrders" : "/order/orders"
 }

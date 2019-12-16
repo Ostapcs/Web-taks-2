@@ -27,8 +27,8 @@ async function get(url) {
         localhostUrl + url,
         {
             headers: {
-                "Authorization": "Bearer " + getKey('Token'),
-                "Content-Type" : "application/json"
+                "Content-Type" : "application/json",
+                "Authorization": "Bearer " + getKey('Token')
             }
         },
     )
@@ -53,8 +53,8 @@ async function post(url, data) {
         data,
         {
             headers: {
-                "Authorization": "Bearer " + getKey('Token'),
-                "Content-Type" : "application/json"
+                "Content-Type" : "application/json",
+                "Authorization": "Bearer " + getKey('Token')
         }}
     )
         .then((response) => {
@@ -80,8 +80,8 @@ async function put(url, data) {
         data,
         {
             headers: {
-                "Authorization": "Bearer " + getKey('Token'),
-                "Content-Type" : "application/json"
+                "Content-Type" : "application/json",
+                "Authorization": "Bearer " + getKey('Token')
             }},
     )
         .then((response) => {

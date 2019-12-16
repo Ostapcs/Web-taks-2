@@ -30,5 +30,15 @@ namespace BLL.Mappers
                 Comments = product.Comments.Select(c => c.ToCommentInfo()).ToList()
             };
         }
+
+        public static ProductCartDto ToProductCartDto(this Product product)
+        {
+            return new ProductCartDto
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Price = product.Price
+            };
+        }
     }
 }

@@ -15,11 +15,13 @@ namespace DAL.Configs
 
             builder.HasOne(po => po.Product)
                 .WithMany(p => p.ProductOrders)
-                .HasForeignKey(po => po.ProductId);
+                .HasForeignKey(po => po.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(po => po.Order)
                 .WithMany(o => o.ProductOrders)
-                .HasForeignKey(po => po.OrderId);
+                .HasForeignKey(po => po.OrderId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

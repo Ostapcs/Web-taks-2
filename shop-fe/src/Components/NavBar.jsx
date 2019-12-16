@@ -46,7 +46,7 @@ class NavBar extends React.Component {
                                 style={{
                                     height: '56px',
                                     borderRadius: '0px',
-                                    position : "absolute",
+                                    position: "absolute",
                                     right: "5px"
                                 }}
                                 onClick={this.logOut}>LogOut
@@ -62,6 +62,18 @@ class NavBar extends React.Component {
                             }}
                         ><Link className="nav-link" to="/cart">Cart</Link></button>
                     </div>}
+                    {getKey("Role") ==="Admin" &&
+                    <button
+                        className='btn btn-info'
+                        style={{
+                            // position: "absolute",
+                            height: "56px",
+                            borderRadius: 0,
+                            // right: "205px",
+                            // top: 0,
+                        }}
+                    ><Link className="nav-link" to="/orders">Orders</Link></button>
+                    }
                     {!getKey("Token") && <div>
                         <button className='btn btn-warning'
                                 style={{

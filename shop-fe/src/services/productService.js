@@ -6,7 +6,7 @@ async function getProducts() {
 }
 
 async function getProductById(id) {
-    return await httpService.get(constant.getProductById + id.toString())
+    return await httpService.get(constant.getProductById + id)
 }
 
 async function createProduct(product){
@@ -17,4 +17,8 @@ async function updateProduct(product){
     return await httpService.put(constant.updateProduct, product);
 }
 
-export {getProducts, getProductById, createProduct, updateProduct}
+async function removeProduct(id){
+    return await httpService.deleteObject(constant.deleteProduct + id)
+}
+
+export {getProducts, getProductById, createProduct, updateProduct, removeProduct}
