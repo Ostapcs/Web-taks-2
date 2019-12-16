@@ -4,7 +4,7 @@ import {getKey} from "../services/localStorageService";
 import {get} from "../services/HTTPService";
 
 class NavBar extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             redirect: false
@@ -29,19 +29,6 @@ class NavBar extends React.Component {
         //return <Redirect to={'/'}/>
     };
 
-    redirectToLogin = () => {
-
-
-
-    };
-
-    redirectToRegister = () => {
-
-    };
-
-    redirectToCartPage = () => {
-
-    };
 
     render() {
         return <div style={{display: 'flex'}}>
@@ -56,8 +43,24 @@ class NavBar extends React.Component {
                     {getKey("Token") && <div>
                         {this.renderRedirect()}
                         <button className='btn btn-danger'
-                                style={{height: '56px', borderRadius: '0px'}}
-                                onClick={this.logOut}>LogOut</button>
+                                style={{
+                                    height: '56px',
+                                    borderRadius: '0px',
+                                    position : "absolute",
+                                    right: "5px"
+                                }}
+                                onClick={this.logOut}>LogOut
+                        </button>
+                        <button
+                            className='btn btn-info'
+                            style={{
+                                // position: "absolute",
+                                height: "56px",
+                                borderRadius: 0,
+                                // right: "205px",
+                                // top: 0,
+                            }}
+                        ><Link className="nav-link" to="/cart">Cart</Link></button>
                     </div>}
                     {!getKey("Token") && <div>
                         <button className='btn btn-warning'
@@ -68,26 +71,16 @@ class NavBar extends React.Component {
                                     right: 0,
                                     top: 0,
                                 }}
-                                ><Link className="nav-link" to="/login">Sign in</Link></button>
+                        ><Link className="nav-link" to="/login">Sign in</Link></button>
                         <button className='btn btn-warning'
                                 style={{
                                     position: "absolute",
                                     height: "56px",
                                     borderRadius: 0,
-                                    right: "90px",
+                                    right: "105px",
                                     top: 0,
                                 }}
-                                onClick={this.redirectToRegister}>Register</button>
-                        <button
-                            className='btn btn-info'
-                            style={{
-                                position: "absolute",
-                                height: "56px",
-                                borderRadius: 0,
-                                right: "175px",
-                                top: 0,
-                            }}
-                            onClick={this.redirectToCartPage}>Cart</button>
+                        ><Link className="nav-link" to="/register">Register</Link></button>
 
                     </div>}
 

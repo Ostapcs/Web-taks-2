@@ -2,7 +2,21 @@ import React from "react";
 
 class Input extends React.Component {
     constructor(props) {
-        const {name, value, placeholder, type, required, cssClass, data, checked, label, disabled, labelCss, errorMessage} = props.data;
+        const {
+            name,
+            value,
+            placeholder,
+            type,
+            required,
+            cssClass,
+            data,
+            checked,
+            label,
+            disabled,
+            labelCss,
+            errorMessage,
+            min,
+        } = props.data;
         super(props);
         this.state = {
             inputData: {
@@ -17,7 +31,8 @@ class Input extends React.Component {
                 checked: checked,
                 disabled: disabled,
                 labelCss: labelCss,
-                errorMessage: errorMessage
+                errorMessage: errorMessage,
+                min: min
             }
         };
         this.inputRef = React.createRef();
@@ -33,6 +48,11 @@ class Input extends React.Component {
             await this.props.setBaseState({selectedRow: "", formData: formData});
             return;
         }
+        else if(this.state.inputData.type === 'file') {
+            formData[e.target.name] = e.target.files[0];
+            await this.props.setBaseState({selectedRow: "", formData: formData});
+            return;
+        }
 
         formData[e.target.name] = e.target.value;
 
@@ -42,7 +62,7 @@ class Input extends React.Component {
 
     render() {
         const isValid = this.props.isValid;
-        const {value, checked, disabled} = this.props.data;
+        const {value, checked, disabled, min} = this.props.data;
         const {name, placeholder, type, required, cssClass, data, label, labelCss, errorMessage} = this.state.inputData;
         return <div className={'answers'}>
             {label && <div>
@@ -67,6 +87,7 @@ class Input extends React.Component {
                     required={required}
                     checked={checked}
                     disabled={disabled}
+                    min={min}
                     // required
                 /> {data}
                 <br/>

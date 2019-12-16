@@ -20,7 +20,6 @@ class RegisterForm extends React.Component {
                     name: "name",
                     label: "Name",
                     required: true,
-                    // value: "admin@gmail.com",
                     cssClass: 'form-control',
                     errorMessage: 'Name is required field'
                 },

@@ -54,7 +54,6 @@ class UpdateUserForm extends React.Component {
         const {history} = this.props;
         const userInfo  = this.state.formData;
         await register(userInfo)
-
     };
 
     render() {

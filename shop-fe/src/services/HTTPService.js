@@ -78,7 +78,11 @@ async function put(url, data) {
     await axios.put(
         localhostUrl + url,
         data,
-        {headers: {"Authorization": "Bearer " + getKey('Token')}},
+        {
+            headers: {
+                "Authorization": "Bearer " + getKey('Token'),
+                "Content-Type" : "application/json"
+            }},
     )
         .then((response) => {
                 result = response.data;

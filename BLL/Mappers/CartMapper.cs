@@ -25,7 +25,8 @@ namespace BLL.Mappers
                 {
                     Id = cart.Product.Id,
                     Name = cart.Product.Name,
-                    Price = cart.Product.Price
+                    Price = cart.Product.Price,
+                    File = cart.Product.File
                 },
                 Amount = cart.Amount
             };

@@ -64,7 +64,10 @@ class Login extends React.Component {
             UnAuthorizeAccess.location = null;
         } else {
             localStorage.setItem("Token", response.access_token);
-            history.push("/main");
+            let tokenData = JSON.parse(atob(response.access_token.split('.')[1]));
+            localStorage.setItem("Role", tokenData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]);
+            localStorage.setItem("Id", tokenData.Id);
+            history.push("/Home");
         }
     };
 

@@ -3,5 +3,11 @@
   "getProductUrl" : "/product/all",
   "getProductById": "/product/info/",
   "register" : "/user/register",
-  "updateUser" : "/user/update"
+  "updateUser" : "/user/update",
+  "addComment" : "/comment/create",
+  "addToCart" : "/cart/add",
+  "getCart" : "/cart/",
+  "updateAmount" : "/cart/update",
+  "createProduct" : "/product/create",
+  "updateProduct" : "/product/update"
 }

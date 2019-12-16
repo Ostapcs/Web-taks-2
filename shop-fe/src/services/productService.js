@@ -9,4 +9,12 @@ async function getProductById(id) {
     return await httpService.get(constant.getProductById + id.toString())
 }
 
-export {getProducts, getProductById}
+async function createProduct(product){
+    return await httpService.post(constant.createProduct, product);
+}
+
+async function updateProduct(product){
+    return await httpService.put(constant.updateProduct, product);
+}
+
+export {getProducts, getProductById, createProduct, updateProduct}

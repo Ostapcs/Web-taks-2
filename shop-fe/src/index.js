@@ -9,6 +9,9 @@ import Product from "./Components/Product";
 import PrivateRouteComponent from "./Components/PrivateRoute";
 import RegisterForm from "./Components/CustomForms/RegisterForm";
 import UpdateUserForm from "./Components/CustomForms/UpdateUserForm";
+import CartPage from "./Components/Cart";
+import CreateProductForm from "./Components/CustomForms/CreateProductForm";
+import UpdateProductForm from "./Components/CustomForms/UpdateProductForm";
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -19,6 +22,9 @@ ReactDOM.render(
             <Route exact path="/register" component={RegisterForm}/>
             <Route exact path="/user/update" component={UpdateUserForm}/>
             <Route exact path="/Home" component={HomePage}/>
+            <Route exact path="/cart" component={CartPage}/>
+            <Route exact path="/product/create" component={CreateProductForm}/>
+            <Route path="/product/update/:id(\d+)" component={UpdateProductForm}/>
             <Route path="/product/:id(\d+)" component={Product}/>
             <Route component={NotFound}/>
         </Switch>
